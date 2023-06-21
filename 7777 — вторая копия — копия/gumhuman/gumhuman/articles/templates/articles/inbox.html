@@ -1,0 +1,18 @@
+<h1>Входящие сообщения</h1>
+
+<ul>
+{% for message in messages %}
+    <li>
+        От: {{ message.sender }}
+        <p>{{ message.text }}</p>
+        <form method="POST" action="{% url 'articles:reply' message.id %}">
+
+            {% csrf_token %}
+            <textarea name="reply_text" rows="4" cols="50"></textarea>
+            <button type="submit">Ответить</button>
+        </form>
+    </li>
+{% empty %}
+    <li>Нет сообщений.</li>
+{% endfor %}
+</ul>

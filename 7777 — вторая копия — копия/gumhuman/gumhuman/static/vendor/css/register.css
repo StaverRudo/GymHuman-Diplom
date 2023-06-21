@@ -1,0 +1,106 @@
+ body {
+    background-color: #32373d;
+}
+
+.registerblock {
+    text-align: center;
+    padding: 10px;
+    
+}
+.registerblock-form {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    background-color: #f1fafa;
+    margin-top: 60px;
+    border-radius: 5px;
+}
+.registerblock-titleblock {
+    background-color: #f1fafa;
+    padding: 15px 5px;
+    border-bottom: 1px solid #ced4da;
+}
+.registerblock-title {
+    color:#32373d;
+}
+.registerblock-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding-top: 30px;
+}
+.registerblock-item {
+    justify-self: start;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.registerblock-left__title {
+    display: block;
+    text-align: left;
+    padding-left: 15px;
+    margin: 0;
+    padding-bottom: 5px;
+    
+}
+.registerblock-right__title {
+    display: block;
+    text-align: left;
+    padding-left: 15px;
+    margin: 0;
+    padding-bottom: 5px;
+}
+.registerblock-left__input {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    outline-color: #bff2ee;
+}
+
+.registerblock-right__input {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 0 10px;
+    outline-color: #bff2ee;
+}
+
+.registerblock-content {
+    text-align: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #ced4da;
+    padding-bottom: 30px;
+}
+.registerblock-button {
+    display: block;
+    background-color: #32373d;
+    padding: 10px 0px;
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.registerblock-descriptionblock {
+    margin-top: 30px;
+}
+.registerblock-description {
+    color: #000;
+    text-decoration: none;
+}
+
+.registerblock-description:hover {
+    text-decoration: underline;
+}
+
+@media(max-width: 565px) {
+    .registerblock-items {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        padding-top: 30px;
+    }
+}

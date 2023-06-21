@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vendor/css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'vendor/css/auth.css'%}">
+    <title>GymHuman - Login</title>
+</head>
+<body>
+    <main class="main">
+
+        <div class="loginblock">
+
+            <div class="loginblock-titleblock">
+                <h3 class="loginblock-title">Авторизация</h3>
+            </div>
+
+
+            <form action="{% url 'users:login' %}" method="post" class="loginblock-form">
+                {% csrf_token %}
+                <div class="loginblock"> 
+                    
+                     <div class="loginblock-left">
+                        <p class="loginblock-left__title">Имя пользователя</p>
+                        {{form.username}}
+                    </div>
+                    <div class="loginblock-right">
+                        <p class="loginblock-right__title">Пароль</p>
+                        {{form.password}}
+                    </div> 
+                    <div class="loginblock-content">
+                        <input class="loginblock-button" type="submit" value="Авторизоваться">
+                    </div>
+                </div>
+                <div class="loginblock-descriptionblock">
+                <a href="{% url 'users:registration' %}" class="loginblock-description">Нужен аккаунт? Зарегистрируйся!</a>
+                </div>
+            </form>
+
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+body{
+    background-repeat: no-repeat;
+}
+.container{
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.header__title{
+    display: block;
+    text-align: center;
+}

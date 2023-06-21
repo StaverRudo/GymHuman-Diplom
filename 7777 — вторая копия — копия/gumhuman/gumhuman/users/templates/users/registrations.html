@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vendor/css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'vendor/css/register.css'%}">
+    <title>GymHuman - Registration</title>
+</head>
+<body>
+    <main class="main">
+
+        <div class="registerblock">
+
+           
+
+
+            <form action="{% url 'users:registration' %}" method="post" class="registerblock-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="registerblock-titleblock">
+                    <h3 class="registerblock-title">Создать аккаунт</h3>
+                </div>
+                <div class="registerblock-items">
+                 <div class="registerblock-item">
+                        <label for="form.first_name.id_for_label">Имя</label>
+                        {{form.first_name}}
+                    </div>
+                    <div class="registerblock-item">
+                        <label for="form.last_name.id_for_label">Фамилия</label>
+                        {{form.last_name}}
+                    </div>
+                    <div class="registerblock-item">
+                        <label for="form.username.id_for_label">Имя пользователя</label>
+                        {{form.username}}
+                    </div>
+                    <div class="registerblock-item">
+                        <label for="form.email.id_for_label">Адрес электронной почты</label>
+                        {{form.email}}
+                    </div>
+                    <div class="registerblock-item">
+                        <label for="form.password1.id_for_label">Пароль</label>
+                        {{form.password1}}
+                    </div>
+                    <div class="registerblock-item">
+                        <label for="form.password2.id_for_label">Подтверждение пароля</label>
+                        {{form.password2}}
+                    </div>
+                    <div class="form-group">
+                        <label class="small mb-1" for="{{ form.image.id_for_label }}">Изображение профиля</label>
+                        {{ form.image }}
+                    </div>
+                    <div class="registerblock-item">
+                        <label for="form.password2.id_for_label">Напишите вашу основную цель</label>
+                        {{form.target}}
+                    </div>
+                    <div class="registerblock-item">
+                        <label for="form.password2.id_for_label">Расскажите о себе</label>
+                        {{form.about_me}}
+                    </div>
+                </div>
+                <div class="registerblock-content">
+                    <input class="registerblock-button" type="submit" value="Создать аккаунт">
+                </div>
+                <div class="registerblock-descriptionblock">
+                <a href="{% url 'users:login' %}" class="registerblock-description">Уже есть аккаунт? Авторизоваться</a>
+                </div>
+            </form>
+
+            <style>
+                .registerblock-right__input_info {
+                    color: red;
+                }
+            </style>
+
+
+
+        </div>
+    </main>
+</body>
+</html>

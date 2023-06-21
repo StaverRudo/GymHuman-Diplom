@@ -1,0 +1,463 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@400;700&family=Secular+One&display=swap" rel="stylesheet">
+
+    
+<!-- Подключаем слайдер -->
+
+<!-- ---------------------------- -->
+
+    <link rel="stylesheet" href="{% static 'vendor/css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'vendor/css/about.css'%}">
+    <link rel="stylesheet" href="/static/vendor/css/content.css">
+
+    <script defer src="{% static 'vendor/js/showmore-about.js'%}" ></script> 
+    <script defer src="{% static 'vendor/js/main.js'%}"></script>
+    <script defer src="{% static 'vendor/js/showmore-about.js'%}" ></script> 
+    
+  
+
+    <title>GymHuman - Описание сатьи</title>
+</head>
+<body>
+
+<!-- Начало блока header -->
+    <header class="header ">
+
+        <div class="container">
+
+
+
+            <!-- Начало блока меню -->
+            <nav class="nav">
+
+<!-- Начало левого блока меню -->
+                <div class="navheader-left">
+
+                    <a href="{% url 'articles:about' %}" class="navheader-left_logo">
+                        <img src="{% static 'vendor/images/index/header/logo.png'%}" alt="header-logo" class="navheader-left_logo-image">
+                    </a>
+                    <div class="navheader-left_text">
+
+                    <a href="{% url 'articles:about' %}" class="header-home_one"><h5 class="navheader-left_title-one">GYM</h5></a>
+                    
+                    <a href="{% url 'articles:about' %}" class="header-home_two"><h5 class="navheader-left_title-two">HUMAN</h5></a>
+
+                    </div>    
+
+                </div>
+<!-- Конец левого блока -->
+
+
+                <!-- Начало центрального блока  -->
+                <div class="navheader-center">
+                    <ul class="menu">
+
+                        <li class="menu-item">
+                            <a href="{% url 'articles:about' %}" class="menu-link">Главная</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Обратная связь</a>
+                        </li>
+                     
+                        <li class="menu-item item-link_login">
+                            <a href="{% url 'users:logout' %}" class="menu-link__login">Выход</a>
+                        </li>
+                     
+
+                    </ul>
+                    
+                </div>
+                <!-- Конец центрального блока -->
+
+
+                <!-- Правый блок меню -->
+                <div class="navheader-right">
+                    <li class="menu-item">
+                        <a href="#" class="menu-link" id="profile__link-clickimages">
+                            <img class="menu-item__image" src="{% static 'vendor/images/about/lichnui-cab.png'%}" alt="">
+                        </a>
+                    </li>
+                    <a href="{% url 'users:logout' %}" class="navheader-right_button">Выход</a>
+                    <button class="header__burger-btn" id="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <!-- Конец правого блока меню -->
+
+            </nav>
+            <!-- Конец блока меню -->
+        </div>
+
+    </header>
+    <!-- Конец блока header -->
+
+<section class="about-images">
+    <h4 class="about-images__title">БЛОГ</h4>
+    <div class="about-images__info">
+        <a href="{% url 'articles:about' %}"><h7 class="about-images__title-site">ГЛАВНАЯ</h7></a>
+        <h7 class="about-images__text">/ПОДРОБНЕЕ</h7>
+    </div>
+</section>
+  
+<!-- Начало главного блока main -->
+<section class="profile" id="profile">
+    <div class="container">
+        <div class="profile-img">
+            {% if user.is_authenticated %}
+            {% if user.image %}
+                <img src="{{ user.image.url }}" alt="Profile Image">
+            {% else %}
+                <p>Изображение отсутствует.</p>
+            {% endif %}
+            {% else %}
+            <p>Пожалуйста зарегистрируйтесь.</p>
+            {% endif %}
+        </div>
+        <div class="profile__info">
+            {% if user.is_authenticated %}
+            <div class="profile__firstname">
+                <h3>{{ user.first_name }}</h3>
+            </div>
+            <div class="profile__lastname">
+                <h3>{{ user.last_name }}</h3>
+            </div>
+            {% endif %}
+        </div>
+        <div class="profile__more">
+            <span class="profile__more-text">Основная цель: </span><br>
+            <span>{{ user.about_me }}</span>
+        </div>
+        <div class="profile__cheli">
+            <span class="profile__more-text">О себе: </span><br>
+            <p>{{ user.target }}</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    var buttonn = document.getElementById("profile__link-clickimages");
+    var blockk = document.getElementById("profile");
+    var isVisible = false; // Флаг текущего состояния блока
+
+    buttonn.addEventListener("click", function() {
+    if (isVisible) {
+        blockk.style.display = "none"; // Если блок видим, скрываем его
+        isVisible = false; // Устанавливаем флаг в false
+    } else {
+        blockk.style.display = "block"; // Если блок скрыт, показываем его
+        isVisible = true; // Устанавливаем флаг в true
+    }
+    });
+</script>    
+
+
+
+
+    <main class="main">
+        <button id="sidebarburger" class="sidebar__burger-btn" >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+      
+
+
+        <!-- Создание начала блока sidebar и content -->
+
+        <!-- Начало блока sidebar -->
+        <section class="sidebar">
+            <div class="sidebar-content">
+                <form action="{% url 'articles:article_search' %}" method="GET">
+                    <input type="text" name="q" placeholder="Поиск" class="sidebar-input">
+                    <button type="submit" class="sidebar-button">Поиск</button>
+                  </form>
+            </div>
+            <div class="sidebar-category">
+                <h5 class="sidebar-title">Категории</h5>
+                <nav class="nav-sidebar">
+                    <ul class="menu-sidebar">
+                        {% for category in categories %}
+                        <li class="menu-sidebar__link">
+                            <a href="#" class="link-sidebar">{{category.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-arhiv">
+                <h5 class="sidebar-arhive__titile">Архив</h5>
+                <nav class="nav-sidebar__arhive">
+                    <ul class="menu-arhive">
+                        {% for arch in arhiv %}
+                        <li class="menu-arhive__link">
+                            <a href="#" class="arhive-link">{{arch.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-comments">
+                <h5 class="sidebar-comments__title">Последнии комментарии</h5>
+
+                {% for comment in latest_comments %}
+                <div class="sidebar-comments__content">
+                    <img src="{{ comment.user.image.url }}" alt="изображение профиля" class="sidebar-comments__img">
+                    <h5 class="sidebar-comments__admin">{{ comment.user.username }}</h5>                    
+                </div>
+                <div class="sidebar-comments__footer">
+                <p class="sidebar-comments__text">{{ comment.text }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- Конец блока sidebar -->
+
+
+         <!-- Начало блока content -->
+        <section class="content">
+            <!-- Начало большой картинки статьи -->
+            <img src="{{ article.image.url }}" alt="изображение статьи" class="content-red__image">
+            <!-- Конец большой картинки статьи -->
+            <div class="contentmore-info">
+                <h1 class="contentmore-info__title">{{article.name}}</h1>
+                <span class="contentmore-info__date">{{article.date}}</span>
+                <p class="contentmore-info__text">{{article.description}}</p>
+                    
+                <h2 class="contentmore-info__titletwo">{{article.title}}</h2>
+                <span class="contentmore-info__texttwo">{{article.info}}</span>
+
+                     <!-- Начало изображения с дополнительными изображениями описания -->
+                    <div class="contentmore-info__images">
+
+                        <div class="contentmore-info__images-block">
+                            <img src="{{article.image_one.url}}" alt="дополнительные изображения" class="contentmore-info__img">
+                        </div>
+                        <div class="contentmore-info__images-block">
+                            <img src="{{article.image_two.url}}" alt="дополнительные изображения" class="contentmore-info__img">
+                        </div>
+
+                    </div>
+                     <!-- Конец изображения с дополнительными изображениями описания -->
+
+                    <!-- Начало последнего блока -->
+
+                    <div class="contentmore-info__ps">
+                        <h2 class="contentmore-info__ps-title">{{article.title_mini}}</h2>
+                        <p class="contentmore-info__ps-content">
+                            {{article.info_mini}}
+                        </p>
+                    </div>
+
+                    <!-- Конец последнего блока -->
+            </div>
+
+
+            <!-- Начало блока с комментариями -->
+            <div class="content-coments">
+
+                <!-- Начало блока заголовка для комментариев -->
+                <div class="content-coments__title-block">
+                <h2 class="content-coments__title">Комментариев: {{ comment_count }} </h2>
+                </div>
+                <!-- Конец блока заголовка для комментариев -->
+
+                <!-- Начало комментариев -->
+                <div class="content-coments__blocks">                
+                    {% for comment in comments %}
+                    <div class="content-coments__block">
+                        <div class="content-coments__block-top">
+                            <img src="{{ comment.user.image.url }}" alt="изображение профиля" class="content-coments__block-top__image">
+                          <div class="content-coments__block-topbottom">
+                                <h3 class="content-coments__block-top-name"><strong>{{ comment.user.username }}</strong> комментарий:</h3>
+                                <p class="content-coments__block-top-date">{{ comment.created_at }}</p>
+                            </div>
+                            
+                        </div>
+                       
+                        <div class="content-coments__infoblock">
+                            <p class="content-coments__info">
+                                {{ comment.text }}
+                            </p>
+                        </div>
+                    </div>
+                    {% empty %}
+                        <p>Нет комментариев</p>
+                    {% endfor %} 
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <!-- Конец комментариев-->
+
+            </div>
+            <!-- Конец блока с комментариями -->
+
+
+
+            <!-- Начало создания блока с формой -->
+
+              
+
+                {% comment %} <h2>Добавить комментарий</h2>
+                <form method="post" action="{% url 'articles:content' article_id=article.id %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Добавить</button>
+                </form> {% endcomment %}
+
+
+
+
+
+            <div class="content-coments__formblock">
+                <form class="content-coments__form" name="feedback" method="post" action="{% url 'articles:article_detail' article_id=article.id %}">
+                    {% csrf_token %}
+                    <div class="content-coments__form-top">
+                    <h2 class="content-coments__form-title">Добавить комментарий</h2>
+                    {% comment %} <p class="content-coments__form-text">Your email address will not be published. Required fields are marked <strong class="content-form">*</strong></p> {% endcomment %}
+                    </div>
+                    <div class="content-coments__form-main">
+                        {{ form.text }}
+                        {% comment %} <textarea class="content-coments__form-main__coment" placeholder="Comment.."></textarea> {% endcomment %}
+                    </div>
+                    {% comment %} <div class="content-coments__form-input">
+                        <input type="text" class="content-coments__input" placeholder="Name *">
+                        <input type="text" class="content-coments__input" placeholder="Email *">
+                        <input type="text" class="content-coments__input" placeholder="Number *">
+                    </div> {% endcomment %}
+                    <div class="content-coments__button">
+                        <button type="submit" class="content-coments__btn">Добавить</button>
+                        {% comment %} <a class="content-coments__btn">post comment</a> {% endcomment %}
+                    </div>
+                    
+
+                    
+                  </form>
+            </div>
+
+            <!-- Начало создания блока с формой -->
+
+
+            <!-- Кнопка-триггер модального окна -->
+
+  
+  <!-- Модальное окно -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-header__title">
+                <h5 class="modal-title" id="staticBackdropLabel">Ask your question here</h5>
+            </div>
+          
+          <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></a>
+        </div>
+        <div class="modal-body">
+            <form action="" class="modal-form">
+                <div class="modal-form__top">
+
+                    <div class="modal-form__top-left">
+                        <p class="modal-form__top-left__title">Your Name</p>
+                        <input type="text" class="modal-form__top-left__input" placeholder="Name *">
+                    </div>
+                    <div class="modal-form__top-right">
+                        <p class="modal-form__top-right__title">Your Email</p>
+                        <input type="text" class="modal-form__top-right__input" placeholder="Email *">
+                    </div>
+
+                </div>
+
+                <div class="modal-form__bottom">
+                    <p class="modal-form__top-bottom__title">Subject</p>
+                    <input type="text" class="modal-form__top-bottom__input" placeholder="Subject *">
+                </div>
+
+
+
+
+                <!-- Начало блока с textarea -->
+                <div class="modal-form__morebottom">
+                    <p class="modal-form__top-morebottom__title">Your Message (optional)</p>
+                    <textarea name="" id="" cols="30" rows="10" class="modal-form__morebottom-textarea" placeholder="Comment... *"></textarea>
+                    
+                </div>
+                <!-- Конец блока с textarea -->
+                <a href="" class="modal-form__morebottom-button">SUBMIT</a>
+            </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="button" class="btn btn-primary">Понял</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+            
+
+        </section>
+
+
+<script>
+   
+</script>
+
+
+         <!-- Конец блока content -->
+
+
+
+        <!-- Создание конец блока sidebar и content -->
+
+
+    </main>
+
+
+<!-- Конец главного блока main -->
+
+
+
+
+
+<!-- Начало блока footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-block">
+        <p class="footer-title">© 2023 Все права защищены. Разработчик STAVER</p>
+        </div>    
+    </div>
+</footer>
+
+
+<!-- Конец блока footer -->
+
+
+<script defer src="{% static 'vendor/js/about.js'%}"></script>
+<!-- Подключаем слайдер -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!-- --------------------------- -->
+
+
+</body>
+</html>

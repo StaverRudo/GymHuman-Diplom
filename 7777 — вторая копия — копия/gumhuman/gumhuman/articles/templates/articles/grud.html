@@ -1,0 +1,774 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Подключение CSS-стилей Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Подключение JS-скриптов Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@400;700&family=Secular+One&display=swap" rel="stylesheet">
+
+    
+<!-- Подключаем слайдер -->
+
+<!-- ---------------------------- -->
+
+    <link rel="stylesheet" href="{% static 'vendor/css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'vendor/css/video.css'%}">
+
+
+    <script defer src="{% static 'vendor/js/showmore-about.js'%}" ></script> 
+    
+  
+
+    <title>GymHuman - Упражнения</title>
+    <link rel="shortcut icon" href="{% static 'vendor/images/title/title-icon.png'%}" />
+</head>
+<body>
+
+<!-- Начало блока header -->
+    <header class="header ">
+
+        <div class="container">
+
+
+
+            <!-- Начало блока меню -->
+            <nav class="nav">
+
+<!-- Начало левого блока меню -->
+                <div class="navheader-left">
+
+                    <a href="" class="navheader-left_logo">
+                        <img src="{% static 'vendor/images/index/header/logo.png'%}" alt="header-logo" class="navheader-left_logo-image">
+                    </a>
+                    <div class="navheader-left_text">
+
+                    <a href="#" class="header-home_one"><h5 class="navheader-left_title-one">GYM</h5></a>
+                    
+                    <a href="#" class="header-home_two"><h5 class="navheader-left_title-two">HUMAN</h5></a>
+
+                    </div>    
+
+                </div>
+<!-- Конец левого блока -->
+
+
+                <!-- Начало центрального блока  -->
+                <div class="navheader-center">
+                    <ul class="menu">
+
+                        <li class="menu-item">
+                            <a href="{% url 'articles:about' %}" class="menu-link">Главная</a>
+                        </li>
+                     
+                        <li class="menu-item item-link_login">
+                            <a href="login.html" class="menu-link__login">Выход</a>
+                        </li>
+                        
+
+                    </ul>
+                    
+                </div>
+                <!-- Конец центрального блока -->
+
+
+                <!-- Правый блок меню -->
+                <div class="navheader-right">
+                    <li class="menu-item">
+                        <a href="#" class="menu-link" id="profile__link-clickimages">
+                            <img class="menu-item__image" src="{% static 'vendor/images/about/lichnui-cab.png'%}" alt="">
+                        </a>
+                    </li>
+                    <a href="login.html" class="navheader-right_button">Выход</a>
+                    <button class="header__burger-btn" id="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                </div>
+                <!-- Конец правого блока меню -->
+
+            </nav>
+            <!-- Конец блока меню -->
+        </div>
+
+    </header>
+    <!-- Конец блока header -->
+
+<section class="about-images">
+    <h4 class="about-images__title">УПРАЖНЕНИЯ</h4>
+    <div class="about-images__info">
+        <a href="index.html"><h7 class="about-images__title-site">Упражнения</h7></a>
+        <h7 class="about-images__text">/Грудная клетка</h7>
+    </div>
+</section>
+  
+<section class="profile" id="profile">
+    <div class="container">
+        <div class="profile-img">
+            <img src="{% static 'vendor/images/about/cris.jpg'%}" alt="">
+        </div>
+        <div class="profile__info">
+            <div class="profile__firstname">
+                <h3>Valery</h3>
+            </div>
+            <div class="profile__lastname">
+                <h3>Staver</h3>
+            </div>
+        </div>
+        <div class="profile__more">
+            <span class="profile__more-text">О себе:</span><br>
+            <span>Я учусь, студент. Учусь на программиста все по кайфу. Ну, а кому сейчас легко</span>
+        </div>
+        <div class="profile__cheli">
+            <span class="profile__more-text">Основная цель:</span><br>
+            <p>Будь первым</p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Начало главного блока main -->
+
+
+    <main class="main">
+    
+        <button id="sidebarburger" class="sidebar__burger-btn" >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+      
+
+
+        <!-- Создание начала блока sidebar и content -->
+
+        <!-- Начало блока sidebar -->
+        <section class="sidebar">
+            <div class="sidebar-content">
+                     <!-- Стрелка -->
+      <div class="container" id="strelka">
+
+        <div class="block__back" >
+            <a href="#">
+                <img class="back" src="{% static 'vendor/images/index/back.png'%}" alt="Стрелка вверх">
+            </a>
+        </div>
+        
+    </div>
+    <!-- Стрелка -->
+                
+            </div>
+            <div class="sidebar-category">
+                <h5 class="sidebar-title">Упражнения</h5>
+                <nav class="nav-sidebar">
+                    <ul class="menu-sidebar">
+                      <li class="menu-sidebar__link">
+                        <a href="{% url 'articles:video' %}" class="link-sidebar ">ПРЕЕСС</a>
+                    </li>
+                    <li class="menu-sidebar__link">
+                        <a href="{% url 'articles:hand' %}" class="link-sidebar">РУКИ</a>
+                    </li>
+                    <li class="menu-sidebar__link">
+                        <a href="{% url 'articles:shoulders' %}" class="link-sidebar">ПЛЕЧИ</a>
+                    </li>
+                    <li class="menu-sidebar__link">
+                        <a href="{% url 'articles:back' %}" class="link-sidebar">СПИНА</a>
+                    </li>
+                    <li class="menu-sidebar__link">
+                        <a href="{% url 'articles:foot' %}" class="link-sidebar">НОГИ</a>
+                    </li>
+                    <li class="menu-sidebar__link">
+                        <a href="{% url 'articles:chest' %}" class="link-sidebar active">ГРУДНАЯ КЛЕТКА</a>
+                    </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </section>
+        <!-- Конец блока sidebar -->
+
+
+         <!-- Начало блока content -->
+        <section class="content">
+
+
+
+            
+            
+             
+            <div class="content-cards">
+
+               <h2 class='abs'>Грудь</h2>
+               <p class='abs-one'>Хорошо известно, что грудь является одной из самых востребованных, хорошо развитых частей тела для мужчин наряду с руками и брюшным прессом, однако она весьма полезна и для женщин. Существует ошибочное мнение, что упражнения для груди уменьшают размер бюста у женщин. Наконец, несмотря на то, что генетика определяет форму и размер ваших грудных мышц, как и всех ваших мышечных групп, дисциплина тренировок может помочь вам достичь ваших физических целей.</p> 
+               <h2 class='abs'>Анатомия и преимущества</h2>
+               <p class='abs-one'>Грудная клетка представляет собой комбинацию большой и малой грудных мышц. Первая сгибает и приводит руку в движение, медиально поворачивает руку, последняя вытягивает лопатку вперед, медиально и вниз. В целях обсуждения мы разделим грудную клетку на четыре основные области: верхнюю, нижнюю, внешнюю и внутреннюю.</p>
+               <h2 class='abs'>Основы упражнений</h2>    
+               
+               
+               
+              
+               <p class='abs-one'>Грудная клетка - это мышца, которую необходимо тренировать, чтобы все ее области развивались полностью. Обычно целью мужчин является полная и широкая грудная клетка. Как и в случае с большинством больших групп мышц, очень важно создать мышечный фундамент, прежде чем заниматься деталями. Этот этап фундамента станет строительными блоками для дальнейшей детальной работы. Что касается грудных мышц, важно следовать плану, который будет состоять из нескольких базовых движений наряду с некоторыми изолирующими движениями. Правильная форма, сокращение и растяжка увеличат ваши показатели и помогут предотвратить травмы. Существует широкий спектр упражнений для правильной стимуляции всех областей мышц грудной клетки для мужчин и женщин.</p>
+               <hr>
+               <h2 class='abs'>Упражнения, используемые в наших тренировках</h2>
+            </div>
+
+
+
+
+                
+            </div>
+            <hr>
+            
+             <div class='d'>
+
+
+
+
+              
+          
+
+            
+                
+                  
+                  <!-- Модальное окно -->
+                  
+
+                    <div class="card">
+                    <div class="card-body">
+                      <a href="#" id="modal-trigger"><h5 class="card-title">Жим штанги</h5></a>
+                    </div>
+                  </div>
+
+                  <div id="modal" class="modal">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <h2 class="card-title_modal">Жим штанги</h2>
+                      <div class='block-images'>
+                        
+                        <img class="block-images__adapt" src="https://www.freetrainers.com/image/e9VHSB2cORX102jus_vG_4eAeCNQ7bEEdwEKgFFjqLyHBhJqi3vmJqGaje3U2In-.jpg" >
+                        <img class="block-images__adapt" src="https://www.freetrainers.com/image/e9VHSB2cORX102jus_vG_6yz0FQwKKtYoqTSx13eiyeHBhJqi3vmJqGaje3U2In-.jpg" >
+                        <img class="block-images__adapt" src="">
+                        <img class="block-images__adapt" src="">
+                      </div>
+                      <h2 class="card-title_modal">Инструкция</h2>
+                      <p class="card-text_modal">Это движение выполняется на плоской скамье. Когда вы встанете в позу, поставьте ноги ровно на пол для равновесия и во избежание травм нижней части спины.
+                        Возьмитесь за перекладину хватом шире, чем на ширине плеч. Хват должен быть таким, чтобы при опускании веса на грудь ваши предплечья были направлены прямо вверх.
+                        Поднимите штангу прямо над грудью. Затем медленно опустите штангу в нижнюю часть груди.
+                        Задержитесь на 1 секунду, а затем снова поднимите штангу вверх. Задержитесь на 2 секунды.</p>
+                    </div>
+                  </div>
+                  
+
+
+
+                  <div class="card">
+                    <div class="card-body">
+                      <a href="#" id="modal-trigger-two"><h5 class="card-title">Отжимания крупным хватом</h5></a>
+                    </div>
+                  </div>
+
+                  <div id="modal-two" class="modal">
+                    <div class="modal-content">
+                      <span class="close-two">&times;</span>
+                      <h2 class="card-title_modal">Отжимания крупным хватом</h2>
+                      <div class='block-images'>
+                        <img class="block-images__adapt" src="https://www.freetrainers.com/image/e9VHSB2cORX102jus_vG_35Vb5z1XZ26j5Nn9lsjMRcd3MxucM_0kl3ueBmOM1xJ.jpg" >
+                        <img class="block-images__adapt" src="https://www.freetrainers.com/image/e9VHSB2cORX102jus_vG_zQEaihKFiCPXDY8SwKQiVgd3MxucM_0kl3ueBmOM1xJ.jpg" >
+                        <img class="block-images__adapt" src="" >
+                        <img class="block-images__adapt" src="" >
+                      </div>
+                      <h2 class="card-title_modal">Инструкция</h2>
+                      <p class="card-text_modal">Это стандартное отжимание, выполняемое с прижатыми друг к другу руками под грудью.
+                        Старайтесь держать спину прямой, а руки на ширине плеч. Убедитесь, что ваша спина не горбится и не провисает.
+                        Сосредоточившись на трицепсах, медленно опускайте туловище, сгибая руки в локтях. Опускайтесь, пока не окажетесь в дюйме от пола. Сосредоточьтесь на растяжке.
+                        Задержитесь в таком положении на 1-2 секунды, затем вернитесь в исходное положение.</p>
+                    </div>
+                  </div>
+{% comment %} ----------------------------------------------------------------------------------------------------------- {% endcomment %}
+                  <div class="d">
+
+                  <div class="card">
+                    <div class="card-body">
+                      <a href="#" id="modal-trigger-three"><h5 class="card-title">Жим лежа с гантелями</h5></a>
+                    </div>
+                  </div>
+
+                  <div id="modal-three" class="modal">
+                    <div class="modal-content">
+                      <span class="close-three">&times;</span>
+                      <h2 class="card-title_modal">Жим лежа с гантелями</h2>
+                      <div class='block-images'>
+                        <img class="block-images__adapt" src="https://www.freetrainers.com/image/e9VHSB2cORX102jus_vG_42vgf1HqK6QaS3gr9Cu6SiHBhJqi3vmJqGaje3U2In-.jpg" >
+                        <img class="block-images__adapt" src="https://www.freetrainers.com/image/e9VHSB2cORX102jus_vG_2NjqFy0TZtma1Ygma_Ntw6HBhJqi3vmJqGaje3U2In-.jpg" >
+                        <img class="block-images__adapt" src="" >
+                        <img class="block-images__adapt" src="" >
+                      </div>
+                      <h2 class="card-title_modal">Инструкция</h2>
+                      <p class="card-text_modal">Это движение выполняется на плоской скамье. Когда вы встанете в позу, поставьте ноги ровно на пол для равновесия и во избежание травм нижней части спины.
+                        Возьмите по гантели в каждую руку. Сядьте на плоскую скамью, расположив каждую гантель снаружи груди, локти направлены прямо вниз.
+                        Нажимайте на гантели прямо над грудью, сводя их вместе в верхней части.
+                        Задержитесь и напрягитесь на 2 секунды, затем опустите гантели обратно в исходное положение.</p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <a href="#" id="modal-trigger-fo"><h5 class="card-title">Отжимания</h5></a>
+                    </div>
+                  </div>
+
+                  <div id="modal-fo" class="modal">
+                    <div class="modal-content">
+                      <span class="close-fo">&times;</span>
+                      <h2 class="card-title_modal">Отжимания</h2>
+                      <div class='block-images'>
+                        <img class="block-images__adapt" src="https://www.freetrainers.com/image/e9VHSB2cORX102jus_vG_-afCpLp4WA8qPt177Zap6yHBhJqi3vmJqGaje3U2In-.jpg" >
+                        <img class="block-images__adapt" src="https://www.freetrainers.com/image/e9VHSB2cORX102jus_vG_8KVVp6KuRKQi5qlqHkoGa2HBhJqi3vmJqGaje3U2In-.jpg" >
+                        <img class="block-images__adapt" src="" >
+                        <img class="block-images__adapt" src="" >
+                      </div>
+                      <h2 class="card-title_modal">Инструкция</h2>
+                      <p class="card-text_modal">Старайтесь держать спину прямой, а руки на ширине плеч. Убедитесь, что ваша спина не горбится и не провисает.
+                        Сосредоточившись на грудных мышцах, медленно опускайте тело, сгибая руки в локтях. Опускайтесь, пока не окажетесь в дюйме от пола. Сосредоточьтесь на растяжке.
+                        Задержитесь в таком положении на 1-2 секунды, затем вернитесь в исходное положение.</p>
+                    </div>
+                  </div>
+                  </div>
+               
+
+
+
+
+
+
+                  
+
+            <style>
+                .d{
+                    display:flex;
+                  
+                }
+                @media(max-width: 1010px){
+                    .d{
+                        flex-wrap: wrap;
+                    }
+                }
+                
+                
+                .card-title {
+                    font-size: 15px;
+                }
+                .active{
+                    color: #ffee38;
+                }
+                /* Стили для модального окна */
+                .modal {
+                display: none; /* Скрыть модальное окно по умолчанию */
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+                }
+
+                .modal-content {
+                background-color: #fefefe;
+                margin: 10% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 600px;
+                }
+
+                .modal-content img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+                }
+
+                .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+                }
+                .close-two{
+                    color: #aaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                .close-three{
+                    color: #aaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                .close-fo{
+                    color: #aaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+
+                .close:hover,
+                .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+                }
+                .block-images{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    background-color: #1b1b1a;
+                    padding: 15px;
+                    margin-bottom: 10px;
+                }
+                .block-images__adapt{
+                    max-width: 255px;
+                    width: 100%;
+                    max-height: 255px;
+                    height: 100%;
+                    
+                }
+                .card-title_modal{
+                    color: #000;
+                    font-size: 25px;
+                    padding-bottom: 10px;
+                }
+                .card-text_modal {
+                    color: #000;
+                }
+
+            </style>    
+           
+            <script>
+                // Получаем ссылку на модальное окно и на элемент-триггер
+                var modal = document.getElementById("modal");
+                var trigger = document.getElementById("modal-trigger");
+              
+                // Получаем ссылку на элемент, который закрывает модальное окно
+                var closeButton = document.getElementsByClassName("close")[0];
+              
+                // Открываем модальное окно при клике на элемент-триггер
+                trigger.onclick = function () {
+                  modal.style.display = "block";
+                };
+              
+                // Закрываем модальное окно при клике на кнопку "Закрыть" или за пределами модального окна
+                closeButton.onclick = function () {
+                  modal.style.display = "none";
+                };
+              
+                window.onclick = function (event) {
+                  if (event.target == modal) {
+                    modal.style.display = "none";
+                  }
+                };
+              </script>
+              
+              {% comment %} ------------------------------------------------------------------------------------------ {% endcomment %}
+              
+              <script>
+                // Получаем ссылку на модальное окно и на элемент-триггер
+                var modalTwo = document.getElementById("modal-two");
+                var triggerTwo = document.getElementById("modal-trigger-two");
+              
+                // Получаем ссылку на элемент, который закрывает модальное окно
+                var closeButtonTwo = document.getElementsByClassName("close-two")[0];
+              
+                // Открываем модальное окно при клике на элемент-триггер
+                triggerTwo.onclick = function () {
+                  modalTwo.style.display = "block";
+                };
+              
+                // Закрываем модальное окно при клике на кнопку "Закрыть" или за пределами модального окна
+                closeButtonTwo.onclick = function () {
+                  modalTwo.style.display = "none";
+                };
+              
+                window.onclick = function (event) {
+                  if (event.target == modalTwo) {
+                    modalTwo.style.display = "none";
+                  }
+                };
+              </script>
+              <script>
+                // Получаем ссылку на модальное окно и на элемент-триггер
+                var modalThree = document.getElementById("modal-three");
+                var triggerThree = document.getElementById("modal-trigger-three");
+              
+                // Получаем ссылку на элемент, который закрывает модальное окно
+                var closeButtonThree = document.getElementsByClassName("close-three")[0];
+              
+                // Открываем модальное окно при клике на элемент-триггер
+                triggerThree.onclick = function () {
+                  modalThree.style.display = "block";
+                };
+              
+                // Закрываем модальное окно при клике на кнопку "Закрыть" или за пределами модального окна
+                closeButtonThree.onclick = function () {
+                  modalThree.style.display = "none";
+                };
+              
+                window.onclick = function (event) {
+                  if (event.target == modalThree) {
+                    modalThree.style.display = "none";
+                  }
+                };
+              </script>
+              <script>
+                // Получаем ссылку на модальное окно и на элемент-триггер
+                var modalFo = document.getElementById("modal-fo");
+                var triggerFo = document.getElementById("modal-trigger-fo");
+              
+                // Получаем ссылку на элемент, который закрывает модальное окно
+                var closeButtonFo = document.getElementsByClassName("close-fo")[0];
+                
+                // Открываем модальное окно при клике на элемент-триггер
+                triggerFo.onclick = function () {
+                  modalFo.style.display = "block";
+                };
+              
+                // Закрываем модальное окно при клике на кнопку "Закрыть" или за пределами модального окна
+                closeButtonFo.onclick = function () {
+                  modalFo.style.display = "none";
+                };
+              
+                window.onclick = function (event) {
+                  if (event.target == modalFo) {
+                    modalFo.style.display = "none";
+                  }
+                };
+              </script>
+           
+           
+            
+            <hr>
+            
+  
+                     
+
+
+            </div>    
+
+          
+
+
+
+
+
+
+
+                </div>
+
+           <style>
+                .abs{
+                    color: #fff;
+                }
+                .abs-one{
+                    color: #a9ac9d;
+                }
+           </style>
+
+           
+
+
+
+
+
+ 
+   
+
+            <div class="content-paginations">
+
+                <nav aria-label="">
+                    <ul class="pagination justify-content-center">
+                      <li class="page-item">
+                        <a class="page-link">Previous</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item " aria-current="page">
+                        <a class="page-link" href="#">2</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                      </li>
+                    </ul>
+                  </nav>
+            </div>
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-header__title">
+                            <h5 class="modal-title" id="staticBackdropLabel">Ask your question here</h5>
+                        </div>
+                      
+                      <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></a>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" class="modal-form">
+                            <div class="modal-form__top">
+            
+                                <div class="modal-form__top-left">
+                                    <p class="modal-form__top-left__title">Your Name</p>
+                                    <input type="text" class="modal-form__top-left__input" placeholder="Name *">
+                                </div>
+                                <div class="modal-form__top-right">
+                                    <p class="modal-form__top-right__title">Your Email</p>
+                                    <input type="text" class="modal-form__top-right__input" placeholder="Email *">
+                                </div>
+            
+                            </div>
+            
+                            <div class="modal-form__bottom">
+                                <p class="modal-form__top-bottom__title">Subject</p>
+                                <input type="text" class="modal-form__top-bottom__input" placeholder="Subject *">
+                            </div>
+            
+            
+            
+            
+                            <!-- Начало блока с textarea -->
+                            <div class="modal-form__morebottom">
+                                <p class="modal-form__top-morebottom__title">Your Message (optional)</p>
+                                <textarea name="" id="" cols="30" rows="10" class="modal-form__morebottom-textarea" placeholder="Comment... *"></textarea>
+                                
+                            </div>
+                            <!-- Конец блока с textarea -->
+                            <div class="index_btn">
+                            <a href="" class="modal-form__morebottom-button">SUBMIT</a>
+                            </div>
+                        </form>
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+
+              
+
+             
+           
+              <div class="button__look">
+            <a id="my-button" href="#">
+                <img class="button__look-img" id="button__look-id" src="/images/about/1.png" alt="" >
+            </a>
+              </div>
+             
+
+        </section>
+
+
+        <section class="right__bar" id="my-block">    
+                <div class="right__bar-inner">
+                    <a href="todolist.html">
+                        <img class="right__bar-images" src="{% static 'vendor/images/about/plus.png'%}" alt="">
+                    </a>
+                    <a href="raspisanie/raspisanie.html">
+                        <img class="right__bar-images" src="{% static 'vendor/images/about/raspisanie.png'%}" alt="">
+                    </a>
+                    <a href="calories.html">
+                        <img class="right__bar-images" src="{% static 'vendor/images/about/callorii.png'%}" alt="">
+                    </a>
+                    <a href="">
+                        <img class="right__bar-images" src="{% static 'vendor/images/about/video.png'%}" alt="">
+                    </a>                    
+                </div>
+        </section>
+        </div>
+
+
+
+
+
+
+
+
+       
+
+           
+       
+
+
+
+         <!-- Конец блока content -->
+
+
+
+
+        <!-- Создание конец блока sidebar и content -->
+
+
+
+
+        
+        
+    </main>
+
+
+<!-- Конец главного блока main -->
+
+
+
+
+
+<!-- Начало блока footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-block">
+        <p class="footer-title">© 2023 Все права защищены. Разработчик STAVER</p>
+        </div>    
+    </div>
+</footer>
+
+
+<!-- Конец блока footer -->
+
+
+
+
+
+
+
+        
+    
+    </div>
+  </div>
+
+
+
+
+
+
+  <script defer src="/js/about.js"></script>
+    
+<!-- Подключаем Модальное окно -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!-- --------------------------- -->
+
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+body {
+    background-color: #32373d;
+}
+.main {
+    text-align: center;
+    align-items: center;
+    margin-top: 60px;
+    background-color: #32373d;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.loginblock {
+    margin: 0 auto;
+    max-width: 440px;
+    max-height: 500px;
+    padding: 10px;
+    background-color: #f1fafa;
+    border-radius: 5px;
+}
+.loginblock-form {
+    padding-bottom: 60px;
+}
+.loginblock-titleblock {
+    padding: 22.5px 5px;
+    border-bottom: 1px solid #ced4da;
+    text-align: center;
+}
+
+
+.loginblock {
+    text-align: left;
+    width: 100%;
+}
+.loginblock-title {
+    color:#32373d;
+}
+
+
+.loginblock-left__input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ced4da;
+    outline-color: #bff2ee;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+.loginblock-left__title {
+    margin: 0;
+    padding-bottom: 3px;
+}
+.loginblock-right{
+    margin-top: 20px;
+}
+.loginblock-right__input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ced4da;
+    outline-color: #bff2ee;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+.loginblock-right__title {
+    margin: 0;
+    padding-bottom: 3px;
+}
+
+.loginblock-content {
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.loginblock-link {
+    display: block;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+}
+.loginblock-link:hover {
+    text-decoration:underline;
+}
+
+.loginblock-button {
+    display: block;
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: #32373d;
+    color: #fff;
+}
+
+
+.loginblock-images {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border-bottom: 1px solid #ced4da;
+    padding-bottom: 15px;
+}
+.loginblock-img {
+    width: 40px;
+    height: 40px;
+}
+
+.loginblock-descriptionblock {
+    text-align: center;
+    margin-top: 5px;
+}
+.loginblock-description {
+    text-decoration: none;
+    color: #000;
+}
+.loginblock-description:hover {
+    text-decoration:underline;
+}

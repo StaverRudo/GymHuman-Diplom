@@ -1,0 +1,806 @@
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+p {
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+
+::-moz-selection{
+    background-color:#ffee38;
+    color:#191919
+}
+
+::selection{
+    background-color:#ffee38;
+    color:#191919
+}
+
+
+/* ------------------------------------------------------------------------------------------------- */
+
+
+/* Блок header */
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #191919;
+    border-bottom: 0.2px solid #6b6666;
+}
+
+.container {
+    max-width: 1300px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.navheader-left {
+    display: flex;
+    padding: 25px 0;
+}
+.navheader-left_logo-image {
+    background-color: #deef0b;
+    max-width: 43px;
+    max-width: 43px;
+    padding-left: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-bottom: 1px;
+    
+}
+
+.navheader-left_text {
+    display: flex;
+}
+
+.navheader-left_title-one {
+    background-color: #deef0b;
+    font-size: 32px;
+    padding-bottom: 1px;
+    z-index: 3;
+}
+
+
+
+.navheader-left_title-two {
+    font-size: 32px;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.navheader-left_title-two:hover {
+    color: #000;
+    background-color: #deef0b;
+    border-bottom: none;
+    padding-bottom: 1px;
+}
+
+
+.header-home_one {
+    color: #000;
+    font-size: 32px;
+}
+
+.header-home_two {
+    font-size: 32px;
+    color: #fff;
+
+}
+
+
+
+
+/* ----------------- */
+.navheader-center {
+    align-items:center;
+    align-self: center;
+    padding-left: 25px;
+    padding-right: 10px;
+}
+.menu {
+    display: flex;
+}
+
+
+/* ---------------------- */
+
+
+
+.navheader-right {
+    justify-self: end;
+    align-self: center;
+}
+
+.menu-item:not(last-child) {
+    margin-right: 40px;
+}
+
+.menu-link {
+    font-family: 'Phudu', sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 16px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.menu-link:hover {
+    color: #deef0b;
+}
+
+.navheader-right_button {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 16px;
+    color: #000;
+    padding: 15px 35px;
+    border-radius: 30px;
+    background-color: #eddd08;
+}
+
+.navheader-right_button:hover {
+    color: #fff;
+    background-color: #767771;
+
+}
+
+
+.header__burger-btn {
+    display: none;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+}
+.header__burger-btn span {
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #eddd08;
+    left: 7.5px;
+    transition: transform .5s, opacity .5s, background-color .5s;
+}
+.header__burger-btn span:nth-child(1) {
+    transform: translateY(-10px);
+}
+.header__burger-btn span:nth-child(3) {
+    transform: translateY(10px);
+}
+
+
+.header__burger-btn span {
+    background-color: #fff;
+}
+.header.open .header__burger-btn span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+.header.open .header__burger-btn span:nth-child(2) {
+    opacity: 0;
+}
+.header.open .header__burger-btn span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+}
+
+
+.button__burger {
+    display: none;
+}
+
+.menu-link__login {
+    display: none;
+}
+
+@media(max-width: 819px) {
+
+    .navheader-left {
+        z-index: 3;
+    }
+    .header__burger-btn {
+        display: block;
+        z-index: 2;
+    }
+  
+    .menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background-color: #191919;
+        padding: 85px 20px 20px 20px;
+        transition: transform .5s;
+        z-index: 2;
+    }
+    .menu-item {
+        display: block;
+        text-align: center;
+        margin: 15px 0;
+    }
+    .menu-link {
+        font-size: 25px;
+        display: block;
+        
+    }
+    
+    .navheader-right_button {
+        display: none;
+    }
+    .header.open .menu {
+        transform: translateX(100%);
+    }
+    .header.open .button__burger {
+        transform: translateX(100%);
+    }
+
+    .item-link_login {
+        margin-top: 50px;
+    }
+    .menu-link__login {
+        display: block;
+        font-family: 'Secular One', sans-serif;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 16px;
+        color: #000;
+        padding: 15px 50px;
+        background-color: #deef0b;
+        border-radius: 30px;
+        max-width: 250px;
+        margin: 0 auto;
+       
+        
+    }
+    .menu-link__login:hover {
+        background-color: #767771;
+    }
+    
+   
+    
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* Конец блока header */
+
+.main {
+    background-color: #191919;
+}
+
+
+/* 
+Начало блока со слайдером */
+
+.main {
+    position: relative;
+}
+/* Стрелка */
+.block__back {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 30px;
+    z-index: 3;
+}
+.back{
+    transform: rotate(90deg);
+}
+/* Стрелка */
+
+
+
+.slider-content {
+    padding: 0 20px;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+}
+
+.slider-title {
+    font-family: 'Phudu', sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    padding-bottom: 40px;
+    text-transform: uppercase;
+    background-color: rgba(92, 77, 77, 0.5);
+    padding: 20px;
+    margin-bottom: 90px;
+    color: #d8d6d6; 
+}
+
+.slider-button {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
+    padding: 15px 40px;
+    background-color: #deef0b;
+    border-radius: 30px;
+    color: #000;
+    font-size: 19px;
+    text-transform: uppercase;
+}
+
+.slider-button:hover {
+    background-color: #767771;
+}
+.slider-one__image {
+    max-height: 550px;
+    object-fit: cover;
+   
+}
+
+
+@media(max-width:1027px) {
+    .slider-title {
+        font-size: 40px;
+    }
+}
+@media(max-width:863px) {
+    .slider-title {
+        font-size: 30px;
+    }
+    .slider-button {
+        font-size: 16px;
+        padding: 12px 30px;
+        text-align: center;
+        
+    }
+}
+@media(max-width:675px) {
+    .slider-content {
+        margin-left: auto;
+        margin-right: auto;
+        top: 30%;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+   
+}
+@media(max-width:560px) {
+
+    .slider-button {
+        font-size: 13px;
+        padding: 10px 25px;
+        text-align: center;
+    }
+   
+}
+@media(max-width:460px) {
+
+    .slider-title {
+        font-size: 25px;
+    }
+   
+}
+@media(max-width:376px) {
+
+    .slider-title {
+        font-size: 25px;
+        padding-bottom: 20px;
+
+    }
+   
+}
+
+
+
+/* Конец блока со слайдером */
+/* ------------------------------------------- */
+
+
+/* Начало info блока */
+
+.info {
+    padding-bottom: 100px;
+}
+.infoblock-text {
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 50px;
+    padding: 0 15px;
+}
+
+.infoblock-text__title {
+    color: #fff;
+}
+.infoblock-text__text {
+    color: #fff;
+}
+
+.infoblock-info {
+    margin: 0 auto;
+    max-width: 950px;
+}
+
+.infoblock-card__image {
+    max-width: 406px;
+}
+
+
+
+.infoblock-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px 30px;
+}
+
+
+.info{
+    margin: 0 auto;
+}
+
+.infoblock-cards {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.infoblock-card {
+    text-align: center;
+}
+
+.infoblock-card__image {
+    max-width: 100%;
+    transition: 1s;
+}
+.infoblock-card__image:hover {
+    transform: scale(0.97);
+}
+
+.infoblock-card__title {
+    font-family: 'Phudu', sans-serif;
+    font-weight: 400;
+    padding-top: 25px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.infoblock-card__title:hover {
+    color: #deef0b;
+}
+
+.infoblock-card__content {
+   
+    color: #fff;
+}
+
+
+@media(max-width: 865px) {
+    .infoblock-cards {
+        grid-template-columns: 1fr;
+        gap: 35px 30px;
+    }
+}
+
+
+/* Конец info блока */
+
+ /* ---------------------------------------------------- */
+ .tools {
+    margin-top: 50px;
+    padding-bottom: 100px;
+  }
+  .tools__inner {
+    padding: 30px 15px;
+    background-color: #1c1b1b;
+    border-radius: 10%;
+  }
+  .tools__inner-top {
+    text-align: center;
+  }
+  .tools__title {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #fff;
+  }
+  .tools__text {
+    font-size: 22px;
+    line-height: 25px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #c66d6d;
+  }
+  .tools__content {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .tools__item {
+    text-align: center;
+  }
+  .tools__item-img {
+    margin: 0 auto;
+    border-radius: 10%;
+    padding: 40px;
+    margin-bottom: 45px;
+    -webkit-box-shadow: 0px 4px 8px 5px rgba(219, 209, 209, 0.2);
+    -moz-box-shadow: 0px 4px 8px 5px rgba(200, 188, 188, 0.2);
+    box-shadow: 0px 4px 8px 5px rgba(233, 224, 224, 0.2);
+  }
+  .tools__item-title {
+    font-size: 25px;
+    margin-bottom: 35px;
+    color: #fff;
+  }
+  .tools__item-text {
+    font-size: 18px;
+    max-width: 300px;
+    text-align: center;
+    color: #c66d6d;
+  }
+
+  /* ---------------------------------------- */
+
+@media(max-width: 996px){
+    .tools__content{
+        flex-wrap: wrap;
+    }
+    .tools__title{
+        font-size: 40px;
+    }
+    .tools__item {
+        width: 100%;
+        padding: 20px 0;
+    }
+    .tools__item-text {
+        margin: 0 auto;
+    }
+}
+@media(max-width: 596px) {
+    .tools__title{
+        font-size: 30px;
+    }
+    .tools__text {
+        font-size: 18px;
+      }
+}
+
+
+
+
+
+/* Начало блока footer */
+
+.footer {
+    background-color: #191919;
+    box-shadow: 0px 9px 0px -8px #717070 inset;
+}
+.footer-block {
+    text-align: center;
+    padding: 25px 15px;
+}
+
+.footer-title {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 15px;
+}
+/* Конец блока footer */
+
+/* Начало блока настроки модального окна */
+.modal
+.modal  {
+    position: relative;
+    background-color: #212121;
+    
+    
+}
+
+
+.btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background-color: #fff;
+}
+
+.modal-dialog {
+    
+    max-width: 700px;
+    padding: 0 20px;
+}
+.modal-content {
+    background-color: #191919;
+    max-width: 700px;
+    height: 100%;
+    border-left: 3px solid #bfb1b1;
+    border-right: 3px solid #bfb1b1;
+}
+.modal-header {
+    border: none;
+    text-align: center;
+}
+.modal-header__title {
+    border-bottom: 1px solid;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+.modal-title {
+    font-size: 30px;
+    color: rgb(157, 157, 150);
+}
+.modal-form__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: left;
+}
+
+
+.modal-form__top-left {
+    text-align: center;
+}
+.modal-form__top-left__title {
+    padding-left: 30px;
+    padding-bottom: 5px;
+    color: rgb(70, 70, 65);
+}
+.modal-form__top-right {
+    text-align: center;
+}
+.modal-form__top-right__title {
+    padding-left: 30px;
+    padding-bottom: 5px;
+    color: rgb(70, 70, 65);
+}
+
+
+
+
+.modal-form__top-left__input {
+    outline:none;
+    border: none;
+    height: 40px;
+    padding: 10px;
+    border-radius: 30px;
+    max-width: 300px;
+    width: 100%;
+}
+.modal-form__top-right__input {
+    outline:none;
+    border: none;
+    height: 40px;
+    padding: 10px;
+    border-radius: 30px;
+    max-width: 300px;
+    width: 100%;
+}
+.modal-form__bottom {
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+    max-width: 700px;
+}
+.modal-form__top-bottom__title {
+    padding-left: 30px;
+    padding-bottom: 5px;
+    color: rgb(70, 70, 65);
+    
+}
+.modal-form__top-bottom__input {
+    width: 100%;
+    outline:none;
+    border: none;
+    height: 40px;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+
+.modal-form__morebottom {
+    margin: 0 auto;
+    margin-top: 40px;
+    max-width: 700px;
+    text-align: left;
+}
+.modal-form__top-morebottom__title {
+    padding-bottom: 10px;
+    color: rgb(70, 70, 65);
+}
+
+
+.modal-form__morebottom-textarea {
+    width: 100%;
+    border-radius: 30px;
+    padding: 20px;
+    outline:none;
+    border: none;
+}
+.index_btn {
+    text-align: center;
+}
+.modal-form__morebottom-button {
+    display: block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #deef0b;
+    border-radius: 30px;
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 30px;
+} 
+
+@media(max-width:717px) {
+    .modal-form__top {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-content: left;
+    }
+    .modal-form__top-left {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .modal-form__top-left__input {
+        max-width: 400px;
+        width: 100%;
+    }
+    .modal-form__top-right {
+        margin: 0 auto;
+        margin-top: 30px;
+        max-width: 400px;
+        width: 100%;
+    }
+    .modal-form__top-right__input {
+        max-width: 400px;
+        width: 100%;
+       
+    }
+    .modal-form__bottom {
+        margin: 0 auto;
+        margin-top: 20px;
+        text-align: center;
+        max-width: 400px;
+    }
+
+}
+
+@media(max-width: 580px){
+    .modal-title {
+        font-size: 26px;
+    }
+    .modal-form__morebottom-textarea {
+        height: 200px;
+    }
+}
+@media (max-width: 500px){
+    .modal-form__top-left__input {
+        max-width: 80%;
+    }
+    .modal-form__top-right__input {
+        max-width: 80%;
+    }
+    .modal-form__top-bottom__input {
+        max-width: 80%;
+    }
+    
+}
+@media (max-width: 410px){
+    .modal-title {
+        font-size: 23px;
+    }
+    .modal-form__morebottom-textarea {
+        height: 150px;
+    }
+}
+
+
+/* Конец блока настроки модального окна */

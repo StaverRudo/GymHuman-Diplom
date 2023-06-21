@@ -1,0 +1,546 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@400;700&family=Secular+One&display=swap" rel="stylesheet">
+
+    
+<!-- Подключаем слайдер -->
+
+<!-- ---------------------------- -->
+
+    <link rel="stylesheet" href="{% static 'vendor/css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'vendor/css/about.css'%}">
+
+
+    <script defer src="{% static 'vendor/js/showmore-about.js'%}" ></script> 
+    
+  
+
+    <title>{{about.title_about}}</title>
+    <link rel="shortcut icon" href="{{about.title_image.url}}">
+</head>
+<body>
+
+<!-- Начало блока header -->
+    <header class="header ">
+
+        <div class="container">
+
+
+
+            <!-- Начало блока меню -->
+            <nav class="nav">
+
+<!-- Начало левого блока меню -->
+                <div class="navheader-left">
+
+                    <a href="{% url 'articles:about' %}" class="navheader-left_logo">
+                        <img src="{{about.logo_image.url}}" alt="header-logo" class="navheader-left_logo-image">
+                    </a>
+                    <div class="navheader-left_text">
+                    <a href="{% url 'articles:about' %}" class="header-home_one"><h5 class="navheader-left_title-one">{{about.header_logo_one}}</h5></a>
+                    <a href="{% url 'articles:about' %}" class="header-home_two"><h5 class="navheader-left_title-two">{{about.header_logo_two}}</h5></a>
+
+                    </div>    
+
+                </div>
+<!-- Конец левого блока -->
+
+
+                <!-- Начало центрального блока  -->
+                <div class="navheader-center">
+                    <ul class="menu">
+
+                        <li class="menu-item">
+                            <a href="{% url 'articles:about' %}" class="menu-link">{{about.about_title}}</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{about.about_title_two}}</a>
+                        </li>
+                     
+                        <li class="menu-item item-link_login">
+                            <a href="{% url 'users:logout' %}" class="menu-link__login">{{about.about_title_three}}</a>
+                        </li>
+                        
+
+                    </ul>
+                    
+                </div>
+                <!-- Конец центрального блока -->
+
+
+                <!-- Правый блок меню -->
+                <div class="navheader-right">
+                    <li class="menu-item">
+                        <a href="#" class="menu-link" id="profile__link-clickimages">
+                            <img class="menu-item__image" src="{% static 'vendor/images/about/lichnui-cab.png'%}" alt="">
+                        </a>
+                    </li>
+                   
+                    <a href="{% url 'users:logout' %}" class="navheader-right_button">{{about.burger_title}}</a>
+
+                    <button class="header__burger-btn" id="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                </div>
+                <!-- Конец правого блока меню -->
+
+            </nav>
+            <!-- Конец блока меню -->
+        </div>
+
+    </header>
+    <!-- Конец блока header -->
+
+<section class="about-images">
+    <h4 class="about-images__title">{{about.about_images}}</h4>
+    <div class="about-images__info">
+        <a href="index.html"><h7 class="about-images__title-site">{{about.about_images_title}}</h7></a>
+        <h7 class="about-images__text">/{{about.about_images_text}}</h7>
+    </div>
+</section>
+
+  
+<section class="profile" id="profile">
+    <div class="container">
+        <div class="profile-img">
+            {% if user.is_authenticated %}
+            {% if user.image %}
+                <img src="{{ user.image.url }}" alt="Profile Image">
+            {% else %}
+                <p>Изображение отсутствует.</p>
+            {% endif %}
+            {% else %}
+            <p>Пожалуйста зарегистрируйтесь.</p>
+            {% endif %}
+           
+        </div>
+        <div class="profile__info">
+            {% if user.is_authenticated %}
+            <div class="profile__firstname">
+                <h3>{{ user.first_name }}</h3>
+            </div>
+            <div class="profile__lastname">
+                <h3>{{ user.last_name }}</h3>
+            </div>
+            {% else %}
+            <p>Please log in to view the user's name.</p>
+            {% endif %}
+        </div>
+        <div class="profile__more">
+            <span class="profile__more-text">{{about.profile_more_text}}</span><br>
+            <span>{{ user.target }}</span>
+        </div>
+        <div class="profile__cheli">
+            <span class="profile__more-text">{{about.profile_more_text_two}}</span><br>
+            <p>{{ user.about_me }}</p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Начало главного блока main -->
+
+
+    <main class="main">
+    
+        <button id="sidebarburger" class="sidebar__burger-btn" >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+      
+
+
+        <!-- Создание начала блока sidebar и content -->
+
+        <!-- Начало блока sidebar -->
+        <section class="sidebar">
+            <div class="sidebar-content">
+                     <!-- Стрелка -->
+      <div class="container" id="strelka">
+
+        <div class="block__back" >
+            <a href="#">
+                <img class="back" src="{{about.strelka_image.url}}" alt="Стрелка вверх">
+            </a>
+        </div>
+        
+    </div>
+    <!-- Стрелка -->
+                {% comment %} <input type="text" class="sidebar-input" placeholder="search"> {% endcomment %}
+                <form action="{% url 'articles:article_search' %}" method="GET">
+                    <input type="text" name="q" placeholder="{{about.sidebar_input}}" class="sidebar-input">
+                    <button type="submit" class="sidebar-button">{{about.sidebar_button}}</button>
+                  </form>
+                  
+                {% comment %} <button class="sidebar-button">SEARCH</button> {% endcomment %}
+            </div>
+          
+
+            <div class="sidebar-category">
+                <h5 class="sidebar-title">{{about.sidebar_title}}</h5>
+                <nav class="nav-sidebar">
+                    <ul class="menu-sidebar">
+                        {% for category in categories %}
+                        <li class="menu-sidebar__link">
+                            <a href="{% url 'articles:article_filter' %}?category={{ category.id }}" class="link-sidebar">{{ category.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+
+
+
+            <div class="sidebar-arhiv">
+                <h5 class="sidebar-arhive__titile">{{about.sidebar_arhive_titile}}</h5>
+                <nav class="nav-sidebar__arhive">
+                    <ul class="menu-arhive">
+                        {% for arch in arhiv %}
+                        <li class="menu-arhive__link">
+                            <a href="{% url 'articles:article_filter' %}?arhiv={{ arch.id }}" class="arhive-link">{{ arch.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            
+
+ <h1>Chat Room</h1>
+
+            <div id="chat-messages"></div>
+        
+            <form id="chat-form">
+                <input type="text" id="chat-input" required>
+                <button type="submit">Отправить</button>
+            </form>
+        
+            <script>
+                var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/');
+        
+                chatSocket.onmessage = function(e) {
+                    var messageElement = document.createElement('p');
+                    messageElement.textContent = e.data;
+                    document.querySelector('#chat-messages').appendChild(messageElement);
+                };
+        
+                document.querySelector('#chat-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var messageInputDom = document.querySelector('#chat-input');
+                    var message = messageInputDom.value;
+                    chatSocket.send(message);
+                    messageInputDom.value = '';
+                });
+            </script>
+
+
+            <div class="sidebar-comments">
+                <h5 class="sidebar-comments__title">{{about.sidebar_comments_title}}</h5>
+
+                {% for comment in latest_comments %}
+                <div class="sidebar-comments__content">
+                    <img src="{{ comment.user.image.url }}" alt="изображение профиля" class="sidebar-comments__img">
+                    <h5 class="sidebar-comments__admin">{{ comment.user.username }}</h5>                    
+                </div>
+                <div class="sidebar-comments__footer">
+                <p class="sidebar-comments__text">{{ comment.text }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- Конец блока sidebar -->
+
+
+         <!-- Начало блока content -->
+        <section class="content">
+            
+            <div class="content-cards">
+                {% for article in page_obj %}
+                <div class="card">
+                    <img src="{{ article.image.url }}" class="card-img-top" alt="картинка блока">
+                  
+                    <div class="card-body">
+                      <a href="{% url 'articles:article_detail' article_id=article.id %}"><h5 class="card-title">{{article.name}}</h5></a>
+                        <div class="card-body__information">
+                            <div class="card-body__date"><p>{{article.date}}</p></div>
+                            <div class="card-body__admin"><p>{{article.user}}</p></div>
+                        </div>
+                      <p class="card-text">{{article.description}}</p>
+                      
+                    </div>
+                </div>
+                {% endfor %} 
+              
+
+
+            </div>
+
+            <!-- Начало блока кнопки "показать еще" -->
+            <div class="content-buttonblock">
+                <div class="content-button">
+                    <button class="content-buttonblock__button" type="button">{{about.content_buttonblock_button}}</button>
+                </div>
+            </div>
+            <!-- Конец блока кнопки "показать еще" -->
+
+
+          
+            
+             <div class="content-paginations">
+                <nav aria-label="">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            {% if page_obj.has_previous %}
+                                <a class="page-link" href="?page=1">&laquo; Первая</a>
+                            {% endif %}
+                        </li>
+                        
+                        <li class="page-item">
+                            {% if page_obj.has_previous %}
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                            {% endif %}
+                        </li>
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if num == page_obj.number %}
+                                <li class="page-item active">
+                                    <span class="page-link">{{ num }}</span>
+                                </li>
+                            {% elif num > page_obj.number|add:"-1" and num < page_obj.number|add:"1" %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% elif forloop.last %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        <li class="page-item">
+                            {% if page_obj.has_next %}
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                            {% endif %}
+                        </li>
+                        
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Последняя ({{ page_obj.paginator.num_pages }})</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            
+            
+
+
+
+        </div>
+            
+
+            
+
+           
+
+
+
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-header__title">
+                            <h5 class="modal-title" id="staticBackdropLabel">{{about.modal_title}}</h5>
+                        </div>
+                      
+                      <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></a>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="{% url 'articles:about' %}"  class="modal-form">
+                            {% csrf_token %}
+                            <div class="modal-form__top">
+                                <div class="modal-form__top-left">
+                                    <p class="modal-form__top-left__title">{{about.modal_form_top_tile_one}}</p>
+                                    <input type="text" name="name" placeholder="Имя" required class="modal-form__top-left__input">
+                                </div>
+                                <div class="modal-form__top-right">
+                                    <p class="modal-form__top-right__title">{{about.modal_form_top_tile_two}}</p>
+                                    <input type="email" name="email" placeholder="Email" required class="modal-form__top-right__input">
+                                </div>
+            
+                            </div>
+            
+                            <div class="modal-form__bottom">
+                                <p class="modal-form__top-bottom__title">{{about.modal_form_top_tile_three}}</p>
+                                <input class="modal-form__top-bottom__input" type="text" name="subject" placeholder="Вопрос" required>
+                            </div>
+            
+            
+            
+            
+                            <!-- Начало блока с textarea -->
+                            <div class="modal-form__morebottom">
+                                <p class="modal-form__top-morebottom__title">{{about.modal_form_top_tile_fo}}</p>
+                                <textarea name="message" placeholder="Сообщение" required cols="30" rows="10" class="modal-form__morebottom-textarea"></textarea>     
+                            </div>
+                            <!-- Конец блока с textarea -->
+                            <div class="index_btn">
+                            <button type="submit" class="modal-form__morebottom-button">{{about.index_btn}}</button>
+                            </div>
+                        </form>
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+              
+
+             
+           
+              <div class="button__look">
+            <a id="my-button" href="#">
+                <img class="button__look-img" id="button__look-id" src="{{about.button_look.url}}" alt="" >
+            </a>
+              </div>
+             
+
+        </section>
+
+
+        <section class="right__bar" id="my-block">    
+                <div class="right__bar-inner">
+                    <a href="{% url 'articles:todo' %}">
+                        <img class="right__bar-images" src="{{about.right_bar_images_one.url}}" alt="">
+                    </a>
+                    <a href="{% url 'users:training_signup' %}">
+                        <img class="right__bar-images" src="{{about.right_bar_images_two.url}}" alt="">
+                    </a>
+                    <a href="{% url 'articles:calories' %}">
+                        <img class="right__bar-images" src="{{about.right_bar_images_three.url}}" alt="">
+                    </a>                  
+                    <a href="{% url 'articles:video' %}">
+                        <img class="right__bar-images" src="{{about.right_bar_images_fo.url}}" alt="">
+                    </a>                                 
+                </div>
+        </section>
+        </div>
+
+
+
+
+
+
+
+
+       
+
+           
+       
+
+
+
+         <!-- Конец блока content -->
+
+
+
+
+        <!-- Создание конец блока sidebar и content -->
+
+
+
+
+        
+        
+    </main>
+
+
+<!-- Конец главного блока main -->
+
+
+
+
+
+<!-- Начало блока footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer_inner">
+            <h2>ул.Трубачеева 150</h2>
+            <h2>
+                <a href="tel:+79149240784">+7-914-924-07-84</a>
+                </h2>
+            <h2>gymhuman@gmail.com</h2>
+            
+        </div>    
+        <div class="footer-block">
+        <p class="footer-title">© 2023. Разработчик STAVER</p>
+        </div>    
+    </div>
+</footer>
+
+<style>
+    .footer{
+        padding-top: 10px;
+    }
+    .footer_inner{
+        padding: 10px;
+        display:flex;
+        justify-content: space-between;
+        background-color: #434343;
+        border-radius-top-left: 5px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+    .footer_inner h2 {
+        font-size: 15px;
+        color: #8a8b80;
+    }
+    .modal-form__morebottom-button{
+        border:none;
+    }
+</style>    
+
+<!-- Конец блока footer -->
+
+
+
+
+
+
+
+        
+    
+    </div>
+  </div>
+
+
+
+
+
+
+  <script defer src="{% static 'vendor/js/about.js'%}"></script>
+    
+<!-- Подключаем Модальное окно -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!-- --------------------------- -->
+
+
+</body>
+</html>
